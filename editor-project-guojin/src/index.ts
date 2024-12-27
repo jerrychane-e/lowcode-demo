@@ -10,7 +10,7 @@ import CodeEditorPlugin from "@alilc/lowcode-plugin-code-editor";
 import ManualPlugin from "@alilc/lowcode-plugin-manual";
 import InjectPlugin from '@alilc/lowcode-plugin-inject';
 import SimulatorResizerPlugin from '@alilc/lowcode-plugin-simulator-select';
-import ComponentPanelPlugin from '@alilc/lowcode-plugin-components-pane';
+import ComponentPanelPlugin from './plugins/plugin-component-panel';
 import DefaultSettersRegistryPlugin from './plugins/plugin-default-setters-registry';
 import LoadIncrementalAssetsWidgetPlugin from './plugins/plugin-load-incremental-assets-widget';
 import SaveSamplePlugin from './plugins/plugin-save-sample';
@@ -20,7 +20,6 @@ import SetRefPropPlugin from '@alilc/lowcode-plugin-set-ref-prop';
 import LogoSamplePlugin from './plugins/plugin-logo-sample';
 import SimulatorLocalePlugin from './plugins/plugin-simulator-locale';
 import lowcodePlugin from './plugins/plugin-lowcode-component';
-import DemoPlugin from './plugins/plugin-demo';
 import appHelper from './appHelper';
 import './global.scss';
 
@@ -52,8 +51,6 @@ async function registerPlugins() {
   await plugins.register(DefaultSettersRegistryPlugin);
 
   await plugins.register(LogoSamplePlugin);
-
-  await plugins.register(DemoPlugin);
 
   await plugins.register(ComponentPanelPlugin);
 
@@ -116,6 +113,5 @@ async function registerPlugins() {
       fetch: createFetchHandler(),
     },
     appHelper,
-    enableContextMenu: true,
   });
 })();
